@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Insert title here</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+	<div>
+    <h1>Person List</h1>
+    <a href="/new">Create New Product</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Person ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="person : ${personList}">
+                <td th:text="${person.id}">Person ID</td>
+                <td th:text="${person.name}">Name</td>
+                <td th:text="${person.surname}">Surname</td>
+                <td th:text="${person.salary}">Salary</td>
+                <td>
+                    <td><a th:href="@{/edit/{id}(id=${person.id})}">Edit</a></td>
+                    &nbsp;&nbsp;&nbsp;
+                    <td><a th:href="@{/delete/{id}(id=${person.id})}">Delete</a></td>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>
